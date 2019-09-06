@@ -14,9 +14,8 @@ public class FibonacciNumber{
 	/* 
 	 * "Hello World" is there to check if needed
 	 * Scanner used to take input from keyboard
-	 ** Note: Does not check if input is NULL or a letter before turning it into an int. Change later
-	 * Changes input into an integer
-	 * Calls Fibonacci function. This can be straightforward or recursive
+	 * If input is an integer, then call Fibonacci function. This can be straightforward or recursive
+	 * Else the input is not an integer
 	 * Prints out the Fibonacci Number of the given integer
 	*/
 	public static void main(String[] args) {
@@ -26,12 +25,15 @@ public class FibonacciNumber{
 		System.out.println("What Number of the Fibonacci Sequence would you like to know?\n");
 		
 		Scanner inputCMDLine = new Scanner(System.in);
-		int FibNumb = inputCMDLine.nextInt();
 		
-		int Total = Fibonacci(FibNumb);
-		
-		System.out.println("\nThe number corresponding to the " + FibNumb + " number in the Fibonacci sequence is: " + Total);
-		
+		if(inputCMDLine.hasNextInt()) {
+			int FibNumb = inputCMDLine.nextInt();
+			int Total = Fibonacci(FibNumb);
+			System.out.println("\nThe number corresponding to the " + FibNumb + " number in the Fibonacci sequence is: " + Total);
+		}
+		else{
+			System.out.println("\nThat was an invalid input!");
+		}
     } 
 
 	/***Straightforward***/
@@ -46,7 +48,7 @@ public class FibonacciNumber{
 	 
 	 *Uncomment and then comment out Recursive - Public in order to run this function
 	*/
-	/*public static int Fibonacci(int FibNumb){
+	public static int Fibonacci(int FibNumb){
 		
 		int Previous = 0;
 		int Total = 1;
@@ -61,7 +63,7 @@ public class FibonacciNumber{
 		}
 		
 		return Total;
-	}*/
+	}
 	
 	/***Recursive***/
 	/***Public***/
@@ -75,14 +77,14 @@ public class FibonacciNumber{
 
 	 *Uncomment and then comment out Straightforward in order to run this function
 	*/
-	public static int Fibonacci(int FibNumb){
+	/*public static int Fibonacci(int FibNumb){
 		
 		int countingNum = 1;
 		int Total = 1;
 		int Previous = 0;
 		
 		return Fibonacci(FibNumb, countingNum, Total, Previous);
-	}
+	}*/
 	
 	/***Recursive***/
 	/***Private***/
